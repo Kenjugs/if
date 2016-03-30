@@ -1,0 +1,66 @@
+{
+  "name": "fates-calculator",
+  "version": "1.0.0",
+  "description": "growth rates calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajora/if.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ajora/if/issues"
+  },
+  "homepage": "https://github.com/Ajora/if#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.7.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "body-parser": "^1.15.0",
+    "browserify": "^13.0.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "lodash": "^4.6.1",
+    "node": "0.0.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.0",
+    "babelify": "^7.2.0",
+    "eslint": "^2.5.2",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-mocha": "^2.0.0",
+    "eslint-plugin-react": "^4.2.3",
+    "jsdom": "^8.2.0",
+    "mocha": "^2.4.5",
+    "mocha-jsdom": "^1.1.0",
+    "react-addons-test-utils": "^0.14.7"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "react",
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015"
+    ]
+  }
+}
