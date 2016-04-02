@@ -83,7 +83,7 @@ var DataEmblem = function (_React$Component) {
   _createClass(DataEmblem, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'testing' }, ' Hello');
+      return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { 'class': 'col-xs-6 text-center' }, _react2.default.createElement('label', null, 'Testing')), _react2.default.createElement('div', { 'class': 'col-xs-6 text-center' }, _react2.default.createElement('label', null, 'Bootstrap')));
     }
   }]);
 

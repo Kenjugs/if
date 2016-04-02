@@ -26,7 +26,14 @@ class DataEmblem extends React.Component {
   }
   render() {
     return (
-      <div className="testing"> Hello</div>
+      <div className="container">
+          <div class="col-xs-6 text-center">
+              <label>Testing</label>
+          </div>
+          <div class="col-xs-6 text-center">
+              <label>Bootstrap</label>
+          </div>
+      </div>
    );
   }
 }
