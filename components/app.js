@@ -27,10 +27,10 @@ class DataEmblem extends React.Component {
   render() {
     return (
       <div className="container">
-          <div class="col-xs-6 text-center">
+          <div className="col-xs-6 text-center">
               <label>Testing</label>
           </div>
-          <div class="col-xs-6 text-center">
+          <div className="col-xs-6 text-center">
               <label>Bootstrap</label>
           </div>
       </div>
