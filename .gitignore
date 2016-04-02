@@ -1,2 +1,4 @@
 node_modules
+FE_DATA.json
 *.log
+build/
