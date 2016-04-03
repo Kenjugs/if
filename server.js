@@ -8,7 +8,7 @@
   var http = require('http')  
   var server = http.createServer(app);
   var bodyParser = require('body-parser');
-  // var FE_DATA = path.join(__dirname, 'FE_DATA.json');
+  var FE_DATA = path.join(__dirname, 'FE_DATA.json');
 
   app.use('/', express.static(path.join(__dirname)));
   app.set('port', (process.env.PORT || 3000));
@@ -21,7 +21,7 @@
     next();
   });
 
-  /*app.get('/api/fe', function(req, res) {
+  app.get('/api/fe', function(req, res) {
     fs.readFile(FE_DATA, function(err, data){
       if(err){
         console.error(err);
@@ -29,7 +29,7 @@
       }
       res.json(JSON.parse(data));
     });
-  });*/
+  });
 
   app.listen(app.get('port'), function() {
     console.log('Server started: http://localhost:' + app.get('port') + '/');
