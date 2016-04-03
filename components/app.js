@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import DataEmblemRows from './DataEmblemRows.js'
 
 class DataEmblem extends React.Component {
   constructor() {
     super();
     this.state = {data: []};
   }
-  
+
   loadJSONFromServer() {
     $.ajax({
       url: 'api/fe',
@@ -19,20 +20,20 @@ class DataEmblem extends React.Component {
       }
     });
   }
-  
+
   componentDidMount() {
     this.loadJSONFromServer();
   }
-  
+
   render() {
     return (
       <div className="container text-center">
         <div className="row bg-primary">
           <div className="col-xs-2">
-            <label>ID</label>
+            <label>Name</label>
           </div>
           <div className="col-xs-2 text-left">
-            <label>Name</label>
+            <label>Class</label>
           </div>
           <div className="col-xs-1">
             <label>HP</label>
@@ -60,64 +61,6 @@ class DataEmblem extends React.Component {
           </div>
         </div>
         <DataEmblemRows data={this.state.data} />
-      </div>
-    );
-  }
-}
-
-class DataEmblemRows extends React.Component {
-  constructor() {
-    super();
-    this.state = {data: []};
-  }
-  
-  render() {
-    var rows = this.props.data.map(function(person) {
-      var customClass = "row";
-      
-      if (person.id % 2 == 0) {
-        customClass += " bg-info";
-      }
-      
-      return (
-        <div className={customClass} key={person.id}>
-          <div className="col-xs-2">
-            <label>{person.id}</label>
-          </div>
-          <div className="col-xs-2 text-left">
-            <label>{person.name}</label>
-          </div>
-          <div className="col-xs-1">
-            <label>{person.hp}</label>
-          </div>
-          <div className="col-xs-1">
-            <label>{person.str}</label>
-          </div>
-          <div className="col-xs-1">
-            <label>{person.mag}</label>
-          </div>
-          <div className="col-xs-1">
-            <label>{person.skl}</label>
-          </div>
-          <div className="col-xs-1">
-            <label>{person.spd}</label>
-          </div>
-          <div className="col-xs-1">
-            <label>{person.lck}</label>
-          </div>
-          <div className="col-xs-1">
-            <label>{person.def}</label>
-          </div>
-          <div className="col-xs-1">
-            <label>{person.res}</label>
-          </div>
-        </div>
-      );
-    });
-    
-    return (
-      <div>
-        {rows}
       </div>
     );
   }
