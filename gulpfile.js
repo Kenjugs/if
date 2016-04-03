@@ -16,7 +16,7 @@ gulp.task('watch', function(){
 
 gulp.task('transform', function () {
   return browserify("./components/app.js")
-        .transform("babelify", {global: true, presets:["es2015", "react"], ignore:['**/node_modules']})
+        .transform("babelify", { global: true, presets: ["es2015", "react"], ignore: ['**/node_modules'] })
         .bundle()
         .on("error", function (err) { throw "Error : " + err.message })
         .pipe(source('app.js'))
