@@ -1,51 +1,51 @@
+/* eslint-disable no-unused-vars*/
 import React from 'react';
+import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
+import { DropdownList } from 'react-widgets';
+/* eslint-enable no-unused-vars*/
 
 class DataEmblemRows extends React.Component {
   render() {
-    console.log(this.props);
-    let rows = this.props.data.map(function (person) {
-      let customClass = "row";
-
+    const rows = this.props.data.map(function (person) {
+      let customClass = '';
       if (person.id % 2 === 0) {
-        customClass += " bg-info";
+        customClass += 'bg-info';
       }
-
       return (
-        <div className={customClass} key={person.id}>
-          <div className="col-xs-2">
+        <Row className={customClass} key={person.id}>
+          <Col xs={2}>
             <label>{person.name}</label>
-          </div>
-          <div className="col-xs-2 text-left">
-            <label>{person.class}</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={2}>
+            <DropdownList className="btn-mini" defaultValue={person.class[0]} data={person.class} />
+          </Col>
+          <Col xs={1}>
             <label>{person.hp}</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>{person.str}</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>{person.mag}</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>{person.skl}</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>{person.spd}</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>{person.lck}</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>{person.def}</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>{person.res}</label>
-          </div>
-        </div>
+          </Col>
+        </Row>
       );
     });
-
     return (
       <div>
         {rows}
