@@ -1,11 +1,14 @@
+/* eslint-disable no-unused-vars*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DataEmblemRows from './DataEmblemRows.js'
+import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
+
 
 class DataEmblem extends React.Component {
   constructor() {
     super();
-    this.state = {data: []};
+    this.state = { data: [] };
   }
 
   loadJSONFromServer() {
@@ -14,10 +17,10 @@ class DataEmblem extends React.Component {
       dataType: 'json',
       cache: false,
       success: (data) => {
-        this.setState({data: data});
+        this.setState({ data });
       }, error: (xhr, status, err) => {
         console.error(status, err.toString());
-      }
+      },
     });
   }
 
@@ -27,41 +30,41 @@ class DataEmblem extends React.Component {
 
   render() {
     return (
-      <div className="container text-center">
-        <div className="row bg-primary">
-          <div className="col-xs-2">
+      <Grid className="container text-center">
+        <Row className="row bg-primary">
+          <Col xs={2}>
             <label>Name</label>
-          </div>
-          <div className="col-xs-2 text-left">
+          </Col>
+          <Col xs={2}>
             <label>Class</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>HP</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>STR</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>MAG</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>SKL</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>SPD</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>LCK</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>DEF</label>
-          </div>
-          <div className="col-xs-1">
+          </Col>
+          <Col xs={1}>
             <label>RES</label>
-          </div>
-        </div>
+          </Col>
+        </Row>
         <DataEmblemRows data={this.state.data} />
-      </div>
+      </Grid>
     );
   }
 }
