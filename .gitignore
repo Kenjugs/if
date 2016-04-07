@@ -1,4 +1,5 @@
 node_modules
-FE_DATA.json
+FE_CHAR.json
+FE_CLASS.json
 *.log
 build/

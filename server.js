@@ -5,10 +5,11 @@
   var app = express();
   var path = require('path');
   var fs = require('fs');
-  var http = require('http')  
+  var http = require('http')
   var server = http.createServer(app);
   var bodyParser = require('body-parser');
-  var FE_DATA = path.join(__dirname, 'FE_DATA.json');
+  var FE_CHAR = path.join(__dirname, 'FE_CHAR.json');
+  var FE_CLASS = path.join(__dirname, 'FE_CLASS.json');
 
   app.use('/', express.static(path.join(__dirname)));
   app.set('port', (process.env.PORT || 3000));
@@ -21,8 +22,18 @@
     next();
   });
 
-  app.get('/api/fe', function(req, res) {
-    fs.readFile(FE_DATA, function(err, data){
+  app.get('/api/fe-char', function(req, res) {
+    fs.readFile(FE_CHAR, function(err, data){
+      if(err){
+        console.error(err);
+        process.exit(1);
+      }
+      res.json(JSON.parse(data));
+    });
+  });
+
+  app.get('/api/fe-class', function(req, res) {
+    fs.readFile(FE_CLASS, function(err, data){
       if(err){
         console.error(err);
         process.exit(1);
