@@ -2,12 +2,37 @@
 import React from 'react';
 import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
 import { DropdownList } from 'react-widgets';
+import _ from 'lodash';
 /* eslint-enable no-unused-vars*/
+/* eslint-disable func-names */
+
 
 class DataEmblemRows extends React.Component {
+  constructor() {
+    super();
+    this.state = { 1: 'Nohr Prince/Princess', 2: 'Fighter', 3: 'Knight', 4: 'Wyvern Rider',
+                   5: 'Malig Knight', 6: 'Fighter', 7: 'Knight', 8: 'Troubadour', 9: 'Maid',
+                   10: 'Wolfskin', 11: 'Mercenary', 12: 'Dark Knight', 13: 'Outlaw',
+                   14: 'Dark Mage', 15: 'Dark Mage', 16: 'Cavalier', 17: 'Mercenary',
+                   18: 'Paladin' };
+  }
+  changeClass(id, clicked) {
+    this.setState({ [id]: clicked });
+    console.log(id + ' = id info');
+    console.log(clicked + ' clicked');
+  }
   render() {
-    const rows = this.props.data.map(function (person) {
+    const that = this;
+    const classes = this.props.class;
+    const rows = this.props.char.map(function (person) {
       let customClass = '';
+      let filteredClass = '';
+      _.filter(classes, function (filter) {
+        if (filter.title === that.state[person.id]) {
+          filteredClass = filter;
+        }
+      });
+
       if (person.id % 2 === 0) {
         customClass += 'bg-info';
       }
@@ -17,31 +42,32 @@ class DataEmblemRows extends React.Component {
             <label>{person.name}</label>
           </Col>
           <Col xs={2}>
-            <DropdownList className="btn-mini" defaultValue={person.class[0]} data={person.class} />
+            <DropdownList className="btn-mini" defaultValue={person.class[0]}
+            data={person.class} onChange={that.changeClass.bind(that, person.id)}/>
           </Col>
           <Col xs={1}>
-            <label>{person.hp}</label>
+            <label>{person.hp + filteredClass.hp}</label>
           </Col>
           <Col xs={1}>
-            <label>{person.str}</label>
+            <label>{person.str + filteredClass.str}</label>
           </Col>
           <Col xs={1}>
-            <label>{person.mag}</label>
+            <label>{person.mag + filteredClass.mag}</label>
           </Col>
           <Col xs={1}>
-            <label>{person.skl}</label>
+            <label>{person.skl + filteredClass.skl}</label>
           </Col>
           <Col xs={1}>
-            <label>{person.spd}</label>
+            <label>{person.spd + filteredClass.spd}</label>
           </Col>
           <Col xs={1}>
-            <label>{person.lck}</label>
+            <label>{person.lck + filteredClass.lck}</label>
           </Col>
           <Col xs={1}>
-            <label>{person.def}</label>
+            <label>{person.def + filteredClass.def}</label>
           </Col>
           <Col xs={1}>
-            <label>{person.res}</label>
+            <label>{person.res + filteredClass.res}</label>
           </Col>
         </Row>
       );

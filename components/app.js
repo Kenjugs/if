@@ -1,23 +1,37 @@
-/* eslint-disable no-unused-vars*/
+/* eslint-disable no-unused-vars */
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DataEmblemRows from './DataEmblemRows.js'
+import DataEmblemRows from './DataEmblemRows.js';
 import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
 
 
 class DataEmblem extends React.Component {
   constructor() {
     super();
-    this.state = { data: [] };
+    this.state = { char: [], class: [] };
   }
 
-  loadJSONFromServer() {
+  loadCharFromServer() {
     $.ajax({
-      url: 'api/fe',
+      url: 'api/fe-char',
       dataType: 'json',
       cache: false,
       success: (data) => {
-        this.setState({ data });
+        this.setState({ char: data });
+      }, error: (xhr, status, err) => {
+        console.error(status, err.toString());
+      },
+    });
+  }
+
+  loadClassFromServer() {
+    $.ajax({
+      url: 'api/fe-class',
+      dataType: 'json',
+      cache: false,
+      success: (data) => {
+        this.setState({ class: data });
       }, error: (xhr, status, err) => {
         console.error(status, err.toString());
       },
@@ -25,7 +39,8 @@ class DataEmblem extends React.Component {
   }
 
   componentDidMount() {
-    this.loadJSONFromServer();
+    this.loadCharFromServer();
+    this.loadClassFromServer();
   }
 
   render() {
@@ -63,7 +78,7 @@ class DataEmblem extends React.Component {
             <label>RES</label>
           </Col>
         </Row>
-        <DataEmblemRows data={this.state.data} />
+        <DataEmblemRows char={this.state.char} class={this.state.class}/>
       </Grid>
     );
   }
