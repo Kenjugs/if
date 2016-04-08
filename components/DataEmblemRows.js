@@ -49,7 +49,6 @@ class DataEmblemRows extends React.Component {
               options={properties}
               defaultValue={properties[0]}
               theme="material"
-              transitionEnter={true}
               onChange={that.changeClass.bind(that, person.id)}/>
           </Col>
           <Col xs={1}>
