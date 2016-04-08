@@ -17,7 +17,7 @@ class DataEmblemRows extends React.Component {
                    18: 'Paladin' };
   }
   changeClass(id, clicked) {
-    this.setState({ [id]: clicked });
+    this.setState({ [id]: clicked.value });
   }
   render() {
     const that = this;
@@ -28,14 +28,11 @@ class DataEmblemRows extends React.Component {
       const properties = person.class.map(function(classes) {
         return { label: classes, value: classes }
       });
-      console.log(properties)
       _.filter(classes, function (filter) {
         if (filter.title === that.state[person.id]) {
           filteredClass = filter;
         }
       });
-
-
       if (person.id % 2 === 0) {
         customClass += 'bg-info';
       }
@@ -49,7 +46,7 @@ class DataEmblemRows extends React.Component {
               options={properties}
               defaultValue={properties[0]}
               theme="material"
-              onChange={that.changeClass.bind(that, person.id)}/>
+              onValueChange={that.changeClass.bind(that, person.id)}/>
           </Col>
           <Col xs={1}>
             <label>{person.hp + filteredClass.hp}</label>
