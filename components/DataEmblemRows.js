@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars*/
 import React from 'react';
 import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
-import { DropdownList } from 'react-widgets';
 import _ from 'lodash';
+import { SimpleSelect } from 'react-selectize';
 /* eslint-enable no-unused-vars*/
 /* eslint-disable func-names */
 
@@ -18,8 +18,6 @@ class DataEmblemRows extends React.Component {
   }
   changeClass(id, clicked) {
     this.setState({ [id]: clicked });
-    console.log(id + ' = id info');
-    console.log(clicked + ' clicked');
   }
   render() {
     const that = this;
@@ -27,11 +25,16 @@ class DataEmblemRows extends React.Component {
     const rows = this.props.char.map(function (person) {
       let customClass = '';
       let filteredClass = '';
+      const properties = person.class.map(function(classes) {
+        return { label: classes, value: classes }
+      });
+      console.log(properties)
       _.filter(classes, function (filter) {
         if (filter.title === that.state[person.id]) {
           filteredClass = filter;
         }
       });
+
 
       if (person.id % 2 === 0) {
         customClass += 'bg-info';
@@ -42,8 +45,12 @@ class DataEmblemRows extends React.Component {
             <label>{person.name}</label>
           </Col>
           <Col xs={2}>
-            <DropdownList className="btn-mini" defaultValue={person.class[0]}
-            data={person.class} onChange={that.changeClass.bind(that, person.id)}/>
+            <SimpleSelect
+              options={properties}
+              defaultValue={properties[0]}
+              theme="material"
+              transitionEnter={true}
+              onChange={that.changeClass.bind(that, person.id)}/>
           </Col>
           <Col xs={1}>
             <label>{person.hp + filteredClass.hp}</label>
