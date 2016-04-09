@@ -23,7 +23,7 @@ class DataEmblemRows extends React.Component {
     const that = this;
     const classes = this.props.class;
     const rows = this.props.char.map(person => {
-      let customClass = '';
+      let customClass = 'vertical-align';
       let filteredClass = '';
       const properties = person.class.map(__class => ({ label: __class, value: __class }));
       _.filter(classes, (filter) => {
@@ -32,7 +32,7 @@ class DataEmblemRows extends React.Component {
         }
       });
       if (person.id % 2 === 0) {
-        customClass += 'bg-info';
+        customClass += ' bg-info';
       }
       return (
         <Row className={customClass} key={person.id}>
