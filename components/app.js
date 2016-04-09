@@ -45,12 +45,12 @@ class DataEmblem extends React.Component {
 
   render() {
     return (
-      <Grid fluid className="text-center">
+      <Grid className="text-center">
         <Row className="row bg-primary">
-          <Col xs={2}>
+          <Col xs={1}>
             <label>Name</label>
           </Col>
-          <Col xs={2}>
+          <Col xs={3}>
             <label>Class</label>
           </Col>
           <Col xs={1}>

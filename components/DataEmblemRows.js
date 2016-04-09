@@ -36,10 +36,10 @@ class DataEmblemRows extends React.Component {
       }
       return (
         <Row className={customClass} key={person.id}>
-          <Col xs={2}>
+          <Col xs={1}>
             <label>{person.name}</label>
           </Col>
-          <Col xs={2}>
+          <Col xs={3}>
             <SimpleSelect
               options={properties}
               defaultValue={properties[0]}
