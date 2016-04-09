@@ -22,13 +22,11 @@ class DataEmblemRows extends React.Component {
   render() {
     const that = this;
     const classes = this.props.class;
-    const rows = this.props.char.map(function (person) {
+    const rows = this.props.char.map(person => {
       let customClass = '';
       let filteredClass = '';
-      const properties = person.class.map(function(classes) {
-        return { label: classes, value: classes }
-      });
-      _.filter(classes, function (filter) {
+      const properties = person.class.map(__class => ({ label: __class, value: __class }));
+      _.filter(classes, (filter) => {
         if (filter.title === that.state[person.id]) {
           filteredClass = filter;
         }
@@ -46,7 +44,7 @@ class DataEmblemRows extends React.Component {
               options={properties}
               defaultValue={properties[0]}
               theme="material"
-              onValueChange={that.changeClass.bind(that, person.id)}/>
+              onValueChange={that.changeClass.bind(that, person.id)} />
           </Col>
           <Col xs={1}>
             <label>{person.hp + filteredClass.hp}</label>
