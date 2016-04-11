@@ -33,7 +33,7 @@ class DataEmblemRows extends React.Component {
     const classes = this.props.class;
     let counter = 0;
     const rows = this.props.char.map(person => {
-      let customClass = '';
+      let customClass = 'vertical-align';
       const properties = person.class.map(__class => ({ label: __class, value: __class }));
       const chosenClass = classes[that.state[person.id]];
       if (counter % 2 === 0) {

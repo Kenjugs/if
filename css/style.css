@@ -1,7 +1,36 @@
+@fontface {
+  font-family: 'Liberation Sans';
+  src: url('webfonts/LiberationSans-Regular.woff') format('woff');
+  src: url('webfonts/LiberationSans-Regular.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Liberation Sans';
+}
+
+.vertical-align {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-align > [class^='col-'],
+.vertical-align > [class*='col-'] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .react-selectize.root-node {
   width: 100%;
 }
+<<<<<<< HEAD
 .react-selectize.material.dropdown-menu .option-wrapper .simple-option {
   font-size: 12px;
+=======
+
+.react-selectize.material.dropdown-menu .option-wrapper .simple-option {
+  font-family: 'Liberation Sans';
+  font-size: 14px;
+>>>>>>> 9a2b64b637873c8d02bf8e491742edf5290fa29c
   height: 36px;
 }
