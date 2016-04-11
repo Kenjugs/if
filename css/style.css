@@ -1,3 +1,7 @@
 .react-selectize.root-node {
   width: 100%;
 }
+.react-selectize.material.dropdown-menu .option-wrapper .simple-option {
+  font-size: 12px;
+  height: 36px;
+}
