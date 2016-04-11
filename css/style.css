@@ -23,14 +23,11 @@ body {
 .react-selectize.root-node {
   width: 100%;
 }
-<<<<<<< HEAD
-.react-selectize.material.dropdown-menu .option-wrapper .simple-option {
-  font-size: 12px;
-=======
-
+.react-selectize.material.root-node .react-selectize-control {
+  padding-top: 1px;
+}
 .react-selectize.material.dropdown-menu .option-wrapper .simple-option {
   font-family: 'Liberation Sans';
   font-size: 14px;
->>>>>>> 9a2b64b637873c8d02bf8e491742edf5290fa29c
   height: 36px;
 }
